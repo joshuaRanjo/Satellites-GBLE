@@ -8,12 +8,15 @@ public class DragAndDropEquation : MonoBehaviour
     [Header("Allow Dragged Lerp")]
     [SerializeField] private bool draggedLerpAllowed = true;
 
+    [Header("Line Data")]
+    [SerializeField] private LineData lineDataScriptableObject;
+/*
     [Header("Equation Controller")]
     [SerializeField] private EquationController equationController;
     
     [Header("Input Controller")]
     [SerializeField] private InputController inputController;
-
+*/
     [Header("Boundaries")]
     [SerializeField] private float maxDragX = 10;
     [SerializeField] private float maxDragY = 10;
@@ -41,6 +44,7 @@ public class DragAndDropEquation : MonoBehaviour
     {
         EventManager.StartListening("SatelliteMoving", NoAllowDrag);
         EventManager.StartListening("SatelliteStopped", AllowDrag);
+
     }
 
         private void OnDisable()
@@ -67,7 +71,7 @@ public class DragAndDropEquation : MonoBehaviour
         submitButton.interactable = false;
         offset = transform.localPosition - transform.parent.InverseTransformPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         EventManager.TriggerEvent("DraggingVertex");
-        
+        Debug.Log("DraggingVertex");
     }
 
     void OnMouseUp()
@@ -95,12 +99,19 @@ public class DragAndDropEquation : MonoBehaviour
 
             float xPos = Mathf.Round(transform.localPosition.x * Mathf.Pow(10,2)) / Mathf.Pow(10,2);
             float yPos = Mathf.Round(transform.localPosition.y * Mathf.Pow(10,2)) / Mathf.Pow(10,2);
-            
-            equationController.UpdateH(xPos);
-            equationController.UpdateK(yPos);
 
-            inputController.UpdateHText(xPos);
-            inputController.UpdateKText(yPos);
+            // convert to scriptable object
+            
+            //equationController.UpdateH(xPos);
+            //equationController.UpdateK(yPos);
+
+            //inputController.UpdateHText(xPos);
+            //inputController.UpdateKText(yPos);
+
+            //Scriptable object 
+            lineDataScriptableObject.SetH(xPos, "drag");
+            lineDataScriptableObject.SetK(yPos, "drag");
+            
         }
         else
         {
@@ -119,11 +130,17 @@ public class DragAndDropEquation : MonoBehaviour
                 float xPos = Mathf.Floor(transform.localPosition.x * Mathf.Pow(10,2)) / Mathf.Pow(10,2);
                 float yPos = Mathf.Floor(transform.localPosition.y * Mathf.Pow(10,2)) / Mathf.Pow(10,2);
                 
-                equationController.UpdateH(xPos);
-                equationController.UpdateK(yPos);
 
-                inputController.UpdateHText(xPos);
-                inputController.UpdateKText(yPos);
+                // convert to scriptable object
+                ///equationController.UpdateH(xPos);
+                //equationController.UpdateK(yPos);
+
+                //inputController.UpdateHText(xPos);
+                //inputController.UpdateKText(yPos);
+
+                //Scriptable object 
+                lineDataScriptableObject.SetH(xPos, "drag");
+                lineDataScriptableObject.SetK(yPos, "drag");
             }
             
             

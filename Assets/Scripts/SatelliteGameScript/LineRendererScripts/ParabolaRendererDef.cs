@@ -19,37 +19,51 @@ public class ParabolaRendererDef : MonoBehaviour
 
     public void DrawParabola()
     {
-        List<Vector3> points = new List<Vector3>();
-
-
-        float xStep = (maxX - -maxX) / (pointCount - 1);
-        // If vertical Axis
-        for (int i = 0; i < pointCount; i++)
+        if(a != 0)
         {
-            float x = -maxX + i * xStep; // Vary 'x' from -1 to 1
-            float y = a * x * x;
+            List<Vector3> points = new List<Vector3>();
 
-            if ( y >= -maxY && y <= maxY)
+
+            float xStep = (maxX - -maxX) / (pointCount - 1);
+            // If vertical Axis
+            for (int i = 0; i < pointCount; i++)
             {
-                Vector3 point = new Vector3(x, y, 0);
-                points.Add(point);
+                float x = -maxX + i * xStep; // Vary 'x' from -1 to 1
+                float y = a * x * x;
+
+                if ( y >= -maxY && y <= maxY)
+                {
+                    Vector3 point = new Vector3(x, y, 0);
+                    points.Add(point);
+                }
+                
             }
+
+            int verticalModifier = 1;
+            if(a < 0)
+            {
+                verticalModifier = -1;
+            }
+
+            float lastX = Mathf.Sqrt(verticalModifier*maxY/a);
+            points.Insert(0, new Vector3(-lastX,maxY*verticalModifier,0));
+            points.Add(new Vector3(lastX,maxY*verticalModifier,0));
             
-        }
 
-        int verticalModifier = 1;
-        if(a < 0)
+            lineRenderer.positionCount = points.Count;
+            lineRenderer.SetPositions(points.ToArray());
+        }
+        else
         {
-            verticalModifier = -1;
+            lineRenderer.positionCount = 2;
+            float x,y;
+            if(isVertical){ x = 0; y = 3;}
+            else{ x = 3; y = 0;}
+
+            lineRenderer.SetPosition(0, new Vector3(x,y,0));
+            lineRenderer.SetPosition(1, new Vector3(-x,-y,0));
         }
-
-        float lastX = Mathf.Sqrt(verticalModifier*maxY/a);
-        points.Insert(0, new Vector3(-lastX,maxY*verticalModifier,0));
-        points.Add(new Vector3(lastX,maxY*verticalModifier,0));
         
-
-        lineRenderer.positionCount = points.Count;
-        lineRenderer.SetPositions(points.ToArray());
     }
 
     public void DrawParabola(float newA, bool newIsVertical)

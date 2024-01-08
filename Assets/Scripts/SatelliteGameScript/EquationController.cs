@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class EquationController : MonoBehaviour
 {
     [Header("Text Boxes")]
-    
-
     [SerializeField] private TEXDraw equationText;
+
+    [Header("Line Data")]
+    [SerializeField] private LineData lineDataScriptableObject;
 
     private int equationType = 0;
     public bool isVertical = true;
@@ -30,6 +31,8 @@ public class EquationController : MonoBehaviour
         EventManager.StartListening("NewQuestion", ResetVariables);
         EventManager.StartListening("QuestionCompleted", ResetVariables);
 
+        lineDataScriptableObject.dataChangeEvent.AddListener(UpdateEquation);
+
     }
 
         private void OnDisable()
@@ -37,6 +40,7 @@ public class EquationController : MonoBehaviour
         EventManager.StopListening("NewQuestion", ResetVariables);
         EventManager.StopListening("QuestionCompleted", ResetVariables);
 
+        lineDataScriptableObject.dataChangeEvent.RemoveListener(UpdateEquation);
     } 
 
 #endregion
@@ -49,17 +53,18 @@ public class EquationController : MonoBehaviour
     {
         equationType = type;
         ResetVariables();
-        UpdateEquation();
+        //UpdateEquation();
     }
 
     // Update h and k on drag
+    /*
     public void DragUpdateHK(float newH, float newK)
     {
         h = newH;
         k = newK;
         UpdateEquation();
     }
-
+    */
     // Reset values / set up new equation
     public void ResetVariables()
     {
@@ -70,7 +75,7 @@ public class EquationController : MonoBehaviour
         isVertical = true;
         equationText.text = "\\uparrow \\uparrow \\uparrow conic not selected \\uparrow \\uparrow \\uparrow";
     }
-
+/*
     public void UpdateH(float newValue)
     {
         h = newValue;
@@ -94,22 +99,21 @@ public class EquationController : MonoBehaviour
         b = newValue;
         UpdateEquation();
     }
-
+*/
     private void UpdateEquation()
     {
-        
-        switch (equationType)
+        switch (lineDataScriptableObject.type)
         {
-            case 1:
+            case "Circle":
                 CircleUpdate();
                 break;
-            case 2:
+            case "Parabola":
                 ParabolaUpdate();
                 break;   
-            case 3:
+            case "Ellipse":
                 EllipseUpdate();
                 break;
-            case 4:
+            case "Hyperbola":
                 HyperbolaUpdate();
                 break;    
             default:
@@ -121,12 +125,12 @@ public class EquationController : MonoBehaviour
     private void ParabolaUpdate()
     {
         //\[y=(x-5)^2+5\]
-        equationText.text = "\\[y=" + a + "(x-" + h + ")^2+"+ k +"\\]";
+        equationText.text = "\\[y=" + lineDataScriptableObject.a + "(x-" + lineDataScriptableObject.h + ")^2+"+ lineDataScriptableObject.k +"\\]";
     }
 
     private void CircleUpdate()
     {
-        equationText.text = "\\[(x-"+h+")^2+(y-"+k+")^2="+a+"^2\\]";
+        equationText.text = "\\[(x-" + lineDataScriptableObject.h + ")^2+(y-" + lineDataScriptableObject.k + ")^2=" + lineDataScriptableObject.a + "^2\\]";
     }
 
     private void EllipseUpdate()

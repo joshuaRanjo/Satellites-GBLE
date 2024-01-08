@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ExactSpotTarget : MonoBehaviour
 {
-    [SerializeField] private GameObject targetObject;
-     private void OnTriggerEnter2D(Collider2D other) {
+    
+    private void OnTriggerEnter2D(Collider2D other) {
         
-        if(other.name == "SatelliteCollider")
+        if(other.name == "ExactSpotSatellite")
         {
-            //Grant points
+            GameEvents.current.PointGained(250);
+            Debug.Log("exact hit");
         }  
     }
 
+    private void OnTriggerExit2D(Collider2D other) 
+    {
 
+    }
 }

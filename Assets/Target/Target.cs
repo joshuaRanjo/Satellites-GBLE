@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject;
     [SerializeField] private SpriteRenderer sprite; 
-     private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         
         if(other.name == "SatelliteCollider")
         {

@@ -779,7 +779,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -797,8 +797,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.19217789, g: 1, b: 0, a: 1}
+      key1: {r: 0.19215688, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1092,9 +1092,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2072359069
-  m_SortingLayer: 2
-  m_SortingOrder: 100
+  m_SortingLayerID: 1137177705
+  m_SortingLayer: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1148,7 +1148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641164028
 GameObject:
@@ -1864,6 +1864,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Ellipse
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1205116307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,6 +2044,18 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Parabola
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1246551621
@@ -2223,7 +2247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1344038537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,13 +2301,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344038536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 796.5972, y: 527.11847, z: -3.6804943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -163.40277, y: -12.881531, z: -3.6804943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1643608162}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345721027
 GameObject:
@@ -2893,15 +2917,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554495238}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 528273083}
   - {fileID: 1739396948}
-  m_Father: {fileID: 7424318234460920100}
-  m_RootOrder: 4
+  m_Father: {fileID: 1624150542668568551}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1554495240
 MonoBehaviour:
@@ -2994,13 +3018,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.55617905
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3012,8 +3036,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.19217789, g: 1, b: 0, a: 1}
+      key1: {r: 0.19215688, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3036,7 +3060,7 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -3062,6 +3086,38 @@ MonoBehaviour:
   radius: 1
   segments: 100
   lineRenderer: {fileID: 1614708329}
+--- !u!1 &1643608161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643608162}
+  m_Layer: 0
+  m_Name: PlayerInputs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643608162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643608161}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1344038538}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1659104865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,6 +3388,18 @@ MonoBehaviour:
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hyperbola
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1687086351
@@ -4284,7 +4352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7424318234460920100}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1890450892
 MonoBehaviour:
@@ -4422,7 +4490,7 @@ Transform:
   - {fileID: 1913380932}
   - {fileID: 2130156271}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032012097
 GameObject:
@@ -4851,6 +4919,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Circle
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2095653116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5003,8 +5083,9 @@ Transform:
   - {fileID: 1741828387}
   - {fileID: 905442746}
   - {fileID: 2051478044}
+  - {fileID: 1554495239}
   m_Father: {fileID: 7424318234460920100}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &7282822709298671552
 RectTransform:
@@ -9324,7 +9405,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2072359069
   m_SortingLayer: 2
-  m_SortingOrder: 99
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9528302, g: 0.21134129, b: 0, a: 1}
   m_FlipX: 0
@@ -9437,13 +9518,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.55617905
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -9455,8 +9536,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.19217789, g: 1, b: 0, a: 1}
+      key1: {r: 0.19215688, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9479,7 +9560,7 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -9652,9 +9733,7 @@ MonoBehaviour:
   parabolaButton: {fileID: 1246551620}
   ellipseButton: {fileID: 1205116306}
   hyperbolaButton: {fileID: 1687086350}
-  equationController: {fileID: 7424318233738695505}
-  draggableLine: {fileID: 7424318234460920120}
-  lineRendererController: {fileID: 7424318233738695507}
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
   submitButton: {fileID: 7282822710093737379}
 --- !u!114 &7424318233738695505
 MonoBehaviour:
@@ -9669,6 +9748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equationText: {fileID: 7282822710123114459}
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
   isVertical: 1
 --- !u!114 &7424318233738695506
 MonoBehaviour:
@@ -9699,6 +9779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggableLine: {fileID: 7424318234460920102}
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
   parabola: {fileID: 7424318233621397963}
   circle: {fileID: 1614708327}
   ellipse: {fileID: 395354148}
@@ -9724,6 +9805,7 @@ MonoBehaviour:
   introWindow: {fileID: 1177493563}
   windowText: {fileID: 1659104867}
   pointsController: {fileID: 7282822709495619670}
+  playerInputGridDragging: {fileID: 1344038536}
 --- !u!4 &7424318234121495094
 Transform:
   m_ObjectHideFlags: 0
@@ -9957,7 +10039,6 @@ Transform:
   - {fileID: 7424318233621397962}
   - {fileID: 1614708328}
   - {fileID: 395354149}
-  - {fileID: 1554495239}
   - {fileID: 1624150542668568551}
   - {fileID: 1890450891}
   m_Father: {fileID: 191032803}
@@ -9995,6 +10076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f1f06b115de9e4b97e28c9534ac539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
 --- !u!58 &7424318234460920122
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10025,6 +10107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submitButton: {fileID: 7282822710093737379}
   draggedLerpAllowed: 0
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
   equationController: {fileID: 7424318233738695505}
   inputController: {fileID: 7424318233738695504}
   maxDragX: 10
@@ -10042,6 +10125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggableLine: {fileID: 7424318234460920102}
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
   parabola: {fileID: 7424318233621397963}
   circle: {fileID: 1614708327}
   ellipse: {fileID: 395354148}

@@ -48,6 +48,9 @@ public class FollowPath5 : MonoBehaviour
     // Coroutine that makes object move
     public IEnumerator FollowPathCoroutine(System.Action onCompleteCallback)
     {
+
+        float startTime = Time.time;
+        
         
         CalculateTotalPathLength();
         while (distanceAlongPath < 1f && !stopCoroutine)
@@ -64,18 +67,12 @@ public class FollowPath5 : MonoBehaviour
                 Vector3 targetPosition = Vector3.Lerp(startPosition, endPosition, segmentFraction);  
                 transform.localPosition = targetPosition;
             }
-            
-            /*
-            if(transform.localPosition.x <= 0.005f && transform.localPosition.x >= -0.005f &&
-               transform.localPosition.y <= 0.005f && transform.localPosition.y >= -0.005f )
-            {
-                Debug.Log("Exact!");
-            }
-            */
 
             yield return null;
         }
-        
+
+        float elapsedTime = Time.time - startTime;
+        Debug.Log("Coroutine took " + elapsedTime + " seconds to finish.");
         onCompleteCallback?.Invoke();
     }
 

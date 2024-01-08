@@ -6,6 +6,9 @@ public class LineRendererController : MonoBehaviour
 {
     [Header("Draggable Line")]
     [SerializeField] private GameObject draggableLine;
+        
+    [Header("Line Data")]
+    [SerializeField] private LineData lineDataScriptableObject;
 
     [Header("Line Renderer Objects")]
     [SerializeField] private GameObject parabola;
@@ -23,6 +26,7 @@ public class LineRendererController : MonoBehaviour
     [SerializeField] private SatelliteController satelliteController;
     
 
+    
     //variables
     private float a;
     private float b;
@@ -39,6 +43,7 @@ public class LineRendererController : MonoBehaviour
         EventManager.StartListening("NewQuestion", ResetLine);
         EventManager.StartListening("QuestionCompleted", ResetLine);
 
+        lineDataScriptableObject.dataChangeEvent.AddListener(UpdateLine);
     }
 
         private void OnDisable()
@@ -46,6 +51,7 @@ public class LineRendererController : MonoBehaviour
         EventManager.StopListening("NewQuestion", ResetLine);
         EventManager.StopListening("QuestionCompleted", ResetLine);
 
+        lineDataScriptableObject.dataChangeEvent.RemoveListener(UpdateLine);
     } 
 
 #endregion
@@ -110,6 +116,7 @@ public class LineRendererController : MonoBehaviour
         satelliteController.SetLineRenderer(currentLine);
     }
 
+
     public void SetA(float newA)
     {
         a = newA;
@@ -122,6 +129,7 @@ public class LineRendererController : MonoBehaviour
         UpdateLine();
     }
 
+
     public void SetIsVertical(bool newIsVertical)
     {
         isVertical = newIsVertical;
@@ -130,19 +138,19 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateLine()
     {
-        if (lineType == "Parabola")
+        if (lineDataScriptableObject.type == "Parabola")
         {
             UpdateParabola();
         }
-        else if (lineType == "Circle")
+        else if (lineDataScriptableObject.type == "Circle")
         {
             UpdateCircle();
         }
-        else if (lineType == "Ellipse")
+        else if (lineDataScriptableObject.type == "Ellipse")
         {
             UpdateEllipse();
         }
-        else if (lineType == "Hyperbola")
+        else if (lineDataScriptableObject.type == "Hyperbola")
         {
             UpdateHyperbola();
         }
@@ -155,12 +163,12 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateParabola()
     {
-       parabolaScript.DrawParabola(a, isVertical);
+       parabolaScript.DrawParabola(lineDataScriptableObject.a, isVertical);
     }
 
     private void UpdateCircle()
     {
-        circleScript.DrawCircle(a);
+        circleScript.DrawCircle(lineDataScriptableObject.a);
     }
 
     private void UpdateEllipse()

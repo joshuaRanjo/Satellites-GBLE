@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject introWindow;
     [SerializeField] private TextMeshProUGUI windowText;
     [SerializeField] private PointsController pointsController;
+    [SerializeField] private GameObject playerInputGridDragging;
 
 #region EVENT_LISTENERS
 
@@ -38,11 +39,16 @@ public class UIController : MonoBehaviour
     {   
         introWindow.SetActive(false);
         EventManager.TriggerEvent("StartGame");
+
+        playerInputGridDragging.SetActive(true);
     }
 
     private void ShowWindow()
     {
+        playerInputGridDragging.SetActive(false);
+
         introWindow.SetActive(true);
+        
         windowText.text = "Congratulations on completing your mission with "+ pointsController.points +" points!!\n\nYou may continue your duties or take a well earned break!";
     }
 

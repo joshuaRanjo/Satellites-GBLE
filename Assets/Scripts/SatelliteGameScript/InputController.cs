@@ -24,6 +24,9 @@ public class InputController : MonoBehaviour
     [SerializeField] private Button ellipseButton;
     [SerializeField] private Button hyperbolaButton;
 
+    [Header("Line Data")]
+    [SerializeField] private LineData lineDataScriptableObject;
+/*
     [Header("Equation Controller")]
     [SerializeField] private EquationController equationController;
 
@@ -32,7 +35,7 @@ public class InputController : MonoBehaviour
 
     [Header("Line Renderer Controller")]
     [SerializeField] private LineRendererController lineRendererController;
-
+*/
     [Header("Submit Button")]
     [SerializeField] private Button submitButton;
 
@@ -67,6 +70,8 @@ public class InputController : MonoBehaviour
         EventManager.StartListening("QuestionCompleted", DisableAll);
         EventManager.StartListening("DraggingVertex", InputStopListening);
         EventManager.StartListening("StoppedDraggingVertex", InputStartListening);
+
+        lineDataScriptableObject.dataChangeEvent.AddListener(UpdateData);
     }
 
         private void OnDisable()
@@ -76,6 +81,8 @@ public class InputController : MonoBehaviour
         EventManager.StopListening("QuestionCompleted", DisableAll);
         EventManager.StopListening("DraggingVertex", InputStopListening);
         EventManager.StopListening("StoppedDraggingVertex", InputStartListening);
+
+        lineDataScriptableObject.dataChangeEvent.RemoveListener(UpdateData);
     }
 
 #endregion
@@ -116,8 +123,10 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputA.text = "1";
-            equationController.UpdateA(1f);
-            lineRendererController.SetA(1f);
+            //equationController.UpdateA(1f);
+            //lineRendererController.SetA(1f);
+
+            lineDataScriptableObject.SetA(1f, "input");
         }
         
     }
@@ -127,8 +136,10 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputB.text = "1";
-            equationController.UpdateB(1f);
-            lineRendererController.SetB(1f);
+            //equationController.UpdateB(1f);
+            //lineRendererController.SetB(1f);
+
+            lineDataScriptableObject.SetB(1f, "input");
         }
     }
 
@@ -137,8 +148,10 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputH.text = "0";
-            equationController.UpdateH(0f);
-            draggableLine.SetX(0f);
+            //equationController.UpdateH(0f);
+            //draggableLine.SetX(0f);
+
+            lineDataScriptableObject.SetH(0f, "input");
         }
     }
 
@@ -147,8 +160,10 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputK.text = "0";
-            equationController.UpdateK(0f);
-            draggableLine.SetY(0f);
+            //equationController.UpdateK(0f);
+            //draggableLine.SetY(0f);
+
+            lineDataScriptableObject.SetK(0f, "input");
         }
     }
     private void UpdateA(string newValue)
@@ -156,8 +171,10 @@ public class InputController : MonoBehaviour
         if(float.TryParse(newValue, out float floatValue))
         {
 
-            equationController.UpdateA(floatValue);
-            lineRendererController.SetA(floatValue);
+            //equationController.UpdateA(floatValue);
+           //lineRendererController.SetA(floatValue);
+            
+            lineDataScriptableObject.SetA(floatValue, "input");
         }
         
     }
@@ -165,8 +182,10 @@ public class InputController : MonoBehaviour
     {
         if(float.TryParse(newValue, out float floatValue))
         {
-            equationController.UpdateB(floatValue);
-            lineRendererController.SetB(floatValue);
+            //equationController.UpdateB(floatValue);
+            //lineRendererController.SetB(floatValue);
+
+            lineDataScriptableObject.SetB(floatValue, "input");
         }
     }
     private void UpdateH(string newValue)
@@ -174,8 +193,10 @@ public class InputController : MonoBehaviour
 
         if(float.TryParse(newValue, out float floatValue))
         {
-            equationController.UpdateH(floatValue);
-            draggableLine.SetX(floatValue);
+            //equationController.UpdateH(floatValue);
+            //draggableLine.SetX(floatValue);
+
+            lineDataScriptableObject.SetH(floatValue, "input");
         }
         
     }
@@ -183,23 +204,29 @@ public class InputController : MonoBehaviour
     {
         if(float.TryParse(newValue, out float floatValue))
         {
-            equationController.UpdateH(floatValue);
-            draggableLine.SetY(floatValue);
+            //equationController.UpdateH(floatValue);
+            //draggableLine.SetY(floatValue);
+
+            lineDataScriptableObject.SetK(floatValue, "input");
         }
     }
 
     private void SetVariablesToDefault()
     {
+        //Potentially Remove this block
+        /*
         UpdateA("1");
         UpdateB("1");
         UpdateH("0");
         UpdateK("0");
+        */
+
         inputA.text = "";
         inputB.text = "";
         inputH.text = "";
         inputK.text = "";
     }
-
+/*
     public void UpdateAText(float newValue)
     {
         inputA.text = newValue.ToString();
@@ -223,7 +250,23 @@ public class InputController : MonoBehaviour
         inputK.text = newValue.ToString();
         valueK = newValue;
     }
+*/
 
+    private void UpdateData()
+    {
+        if(lineDataScriptableObject.changeType != "input")
+        {
+            inputA.text = lineDataScriptableObject.a.ToString();
+            inputB.text = "";
+            inputH.text = lineDataScriptableObject.h.ToString();
+            inputK.text = lineDataScriptableObject.k.ToString();
+
+            if(lineDataScriptableObject.type == "Ellipse" || lineDataScriptableObject.type == "Hyperbola")
+                inputB.text = lineDataScriptableObject.b.ToString();
+        }
+        
+        
+    }
 
     public void ConicSelectorPressed(bool onlyA)
     {
@@ -235,6 +278,7 @@ public class InputController : MonoBehaviour
     
     public void ChangeDefaultValues(bool onlyA)
     {
+        // Possibly Remove
         valueA = defaultA;
         valueB = defaultB;
         valueH = defaultH;
@@ -274,7 +318,6 @@ public class InputController : MonoBehaviour
         parabolaButton.interactable = B;
         ellipseButton.interactable = C;
         hyperbolaButton.interactable = D;
-        Debug.Log("ActivateButtons");
     }
 
     public void DisableAll()
@@ -289,7 +332,7 @@ public class InputController : MonoBehaviour
         ellipseButton.interactable = false;
         hyperbolaButton.interactable = false;
 
-        Debug.Log("Deactivate");
+        
         ChangeInteractableSubmitButton(false);
         SetVariablesToDefault();
     }
