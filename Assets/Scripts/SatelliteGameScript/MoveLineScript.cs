@@ -7,6 +7,9 @@ public class MoveLineScript : MonoBehaviour
 
     [Header("Line Data")]
     [SerializeField] private LineData lineDataScriptableObject;
+
+    private float x = 0f;
+    private float y = 0f;
 #region EVENT_LISTENERS
     private void OnEnable()
     {
@@ -21,14 +24,22 @@ public class MoveLineScript : MonoBehaviour
 
     private void ChangePosition()
     {
+        
         float newXPosition = lineDataScriptableObject.h;
         float newYPosition = lineDataScriptableObject.k;
-        Vector3 currentPosition = transform.localPosition;
 
-        currentPosition.x = newXPosition;
-        currentPosition.y = newYPosition;
+        if(x != newXPosition || y != newYPosition)
+        {
+            x = newXPosition; y = newYPosition;
 
-        transform.localPosition = currentPosition;
+            Vector3 currentPosition = transform.localPosition;
+
+            currentPosition.x = newXPosition;
+            currentPosition.y = newYPosition;
+
+            transform.localPosition = currentPosition;
+        }
+        
     }
     /*
     public void SetX(float xPosition)

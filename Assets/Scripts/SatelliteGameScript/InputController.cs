@@ -213,6 +213,7 @@ public class InputController : MonoBehaviour
 
     private void SetVariablesToDefault()
     {
+        InputStopListening();
         //Potentially Remove this block
         /*
         UpdateA("1");
@@ -225,6 +226,7 @@ public class InputController : MonoBehaviour
         inputB.text = "";
         inputH.text = "";
         inputK.text = "";
+        InputStartListening();
     }
 /*
     public void UpdateAText(float newValue)
@@ -254,6 +256,7 @@ public class InputController : MonoBehaviour
 
     private void UpdateData()
     {
+        InputStopListening();
         if(lineDataScriptableObject.changeType != "input")
         {
             inputA.text = lineDataScriptableObject.a.ToString();
@@ -264,20 +267,27 @@ public class InputController : MonoBehaviour
             if(lineDataScriptableObject.type == "Ellipse" || lineDataScriptableObject.type == "Hyperbola")
                 inputB.text = lineDataScriptableObject.b.ToString();
         }
-        
+        InputStartListening();
         
     }
 
     public void ConicSelectorPressed(bool onlyA)
     {
+        InputStopListening();
+
         this.onlyA = onlyA;
         ChangeInteractableInputs(onlyA);
         ChangeInteractableSubmitButton(true);
         ChangeDefaultValues(onlyA);
+
+        InputStartListening();
     }
     
     public void ChangeDefaultValues(bool onlyA)
     {
+
+        InputStopListening();
+
         // Possibly Remove
         valueA = defaultA;
         valueB = defaultB;
@@ -292,6 +302,8 @@ public class InputController : MonoBehaviour
         {
             inputB.text = defaultB.ToString();
         }
+
+        InputStartListening();
     }
     
     public void ChangeInteractableInputs(bool onlyA)

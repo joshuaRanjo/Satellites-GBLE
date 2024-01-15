@@ -138,26 +138,45 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateLine()
     {
-        if (lineDataScriptableObject.type == "Parabola")
+        bool newIsVertical;
+        string orientationString = lineDataScriptableObject.orientation;
+            if(orientationString == "Vertical")
+            {
+                newIsVertical = true;
+            }
+            else
+            {
+                newIsVertical = false;
+            }
+        if(a != lineDataScriptableObject.a || b != lineDataScriptableObject.a ||  isVertical != newIsVertical)
         {
-            UpdateParabola();
+            a = lineDataScriptableObject.a;
+            b = lineDataScriptableObject.b;
+            isVertical = newIsVertical;
+            
+            if (lineDataScriptableObject.type == "Parabola")
+            {
+                UpdateParabola();
+            }
+            else if (lineDataScriptableObject.type == "Circle")
+            {
+                UpdateCircle();
+            }
+            else if (lineDataScriptableObject.type == "Ellipse")
+            {
+                UpdateEllipse();
+            }
+            else if (lineDataScriptableObject.type == "Hyperbola")
+            {
+                UpdateHyperbola();
+            }
+            else
+            {
+                Debug.Log("LineRendererController: No Valid LineType set");
+            }
         }
-        else if (lineDataScriptableObject.type == "Circle")
-        {
-            UpdateCircle();
-        }
-        else if (lineDataScriptableObject.type == "Ellipse")
-        {
-            UpdateEllipse();
-        }
-        else if (lineDataScriptableObject.type == "Hyperbola")
-        {
-            UpdateHyperbola();
-        }
-        else
-        {
-            Debug.Log("LineRendererController: No Valid LineType set");
-        }
+
+
 
     }
 
@@ -173,11 +192,11 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateEllipse()
     {
-
+        Debug.Log("Update Ellipse");
     }
 
     private void UpdateHyperbola()
     {
-
+        Debug.Log("Update Hyperbola");
     }
 }
