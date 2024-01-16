@@ -184,7 +184,7 @@ public class InputController : MonoBehaviour
         {
             //equationController.UpdateB(floatValue);
             //lineRendererController.SetB(floatValue);
-
+            
             lineDataScriptableObject.SetB(floatValue, "input");
         }
     }

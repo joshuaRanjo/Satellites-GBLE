@@ -135,7 +135,7 @@ public class EquationController : MonoBehaviour
 
     private void EllipseUpdate()
     {
-        equationText.text = "\\[frac{x^2,\\]";
+        equationText.text = "\\[\\frac{(x-" + lineDataScriptableObject.h + ")^2}{" + lineDataScriptableObject.a +"^2} + \\frac{(y-" + lineDataScriptableObject.k + ")^2}{" + lineDataScriptableObject.b + "^2} = 1\\]";;
     }
 
     private void HyperbolaUpdate()

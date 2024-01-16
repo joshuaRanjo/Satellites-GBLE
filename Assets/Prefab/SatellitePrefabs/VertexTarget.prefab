@@ -200,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 8820204852332932939}
   sprite: {fileID: 3391310126426247480}
+  targetTransform: {fileID: 5309382388057954027}
+  lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
 --- !u!1 &4391900225130166681
 GameObject:
   m_ObjectHideFlags: 0

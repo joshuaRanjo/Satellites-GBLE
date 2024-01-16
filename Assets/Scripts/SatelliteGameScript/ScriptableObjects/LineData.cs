@@ -48,7 +48,15 @@ public class LineData : ScriptableObject
 
     public void ResetValues()
     {
-        a = 1f; b = 1f; h = 0f; k = 0f; orientation = "horizontal"; changeType = "none";
+        a = 1f; b = 1f; h = 0f; k = 0f;  changeType = "none";
+        if(type == "Parabola")
+        {
+            orientation = "Vertical";
+        }
+        else
+        {
+            orientation = "Horizontal";
+        }
         if(hasSpecifications)
         {
             // Set values to specified 

@@ -155,6 +155,6 @@ public class QuestionController : MonoBehaviour
         GameObject newTarget = Instantiate(vertexTarget, localSpace);
         targetPrefabs.Add(newTarget);
         newTarget.transform.localPosition = newTransform;
-        inputController.ChangeInteractableButtons(true,true,false,false);
+        inputController.ChangeInteractableButtons(true,true,true,false);
     }
 }

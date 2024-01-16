@@ -56,6 +56,14 @@ public class LineRendererController : MonoBehaviour
 
 #endregion
 
+    void Start()
+    {
+        if(hyperbola == null)
+        {
+            Debug.Log("Hyperbola object variable is null");
+        }
+    }
+
     private void ResetLine()
     {
         if(currentLine != null)
@@ -148,7 +156,7 @@ public class LineRendererController : MonoBehaviour
             {
                 newIsVertical = false;
             }
-        if(a != lineDataScriptableObject.a || b != lineDataScriptableObject.a ||  isVertical != newIsVertical)
+        if(a != lineDataScriptableObject.a || b != lineDataScriptableObject.b ||  isVertical != newIsVertical)
         {
             a = lineDataScriptableObject.a;
             b = lineDataScriptableObject.b;
@@ -192,11 +200,12 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateEllipse()
     {
-        Debug.Log("Update Ellipse");
+        //Debug.Log("Update Ellipse");
+        ellipseScript.DrawEllipse(lineDataScriptableObject.a, lineDataScriptableObject.b);
     }
 
     private void UpdateHyperbola()
     {
-        Debug.Log("Update Hyperbola");
+        //Debug.Log("Update Hyperbola");
     }
 }

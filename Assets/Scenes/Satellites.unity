@@ -830,7 +830,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &395354151
 MonoBehaviour:
@@ -844,6 +844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180306cba97a6f948b71c67597776f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  a: 1
+  b: 1
+  resolution: 360
+  lineRenderer: {fileID: 395354150}
 --- !u!1 &436247500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1820,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Ellipse
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7424318233738695507}
         m_TargetAssemblyTypeName: LineRendererController, Assembly-CSharp
         m_MethodName: EnableDraggableLine
@@ -1862,18 +1878,6 @@ MonoBehaviour:
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
-        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
-        m_MethodName: SetType
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Ellipse
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1205116307
@@ -4871,6 +4875,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Circle
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 7424318233738695507}
         m_TargetAssemblyTypeName: LineRendererController, Assembly-CSharp
         m_MethodName: EnableDraggableLine
@@ -4917,18 +4933,6 @@ MonoBehaviour:
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
-        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
-        m_MethodName: SetType
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Circle
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2095653116
@@ -6311,7 +6315,7 @@ GameObject:
   - component: {fileID: 7282822709809215663}
   - component: {fileID: 7282822709809215660}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: InputFieldB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7646,7 +7650,7 @@ GameObject:
   - component: {fileID: 7282822710456739376}
   - component: {fileID: 7282822710456739390}
   m_Layer: 5
-  m_Name: InputField (TMP) (3)
+  m_Name: InputFieldK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7822,7 +7826,7 @@ GameObject:
   - component: {fileID: 7282822710605001328}
   - component: {fileID: 7282822710605001330}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: InputFieldA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9004,7 +9008,7 @@ GameObject:
   - component: {fileID: 7282822711194117622}
   - component: {fileID: 7282822711194117576}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: InputFieldH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10108,8 +10112,6 @@ MonoBehaviour:
   submitButton: {fileID: 7282822710093737379}
   draggedLerpAllowed: 0
   lineDataScriptableObject: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
-  equationController: {fileID: 7424318233738695505}
-  inputController: {fileID: 7424318233738695504}
   maxDragX: 10
   maxDragY: 10
 --- !u!114 &7424318234460920124
