@@ -964,15 +964,15 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2072359069
+  m_SortingLayer: 2
+  m_SortingOrder: 100
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -990,8 +990,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.19217789, g: 1, b: 0, a: 1}
+      key1: {r: 0.19215688, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1023,7 +1023,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!1 &562288803
 GameObject:
@@ -2928,8 +2928,8 @@ Transform:
   m_Children:
   - {fileID: 528273083}
   - {fileID: 1739396948}
-  m_Father: {fileID: 1624150542668568551}
-  m_RootOrder: 3
+  m_Father: {fileID: 7424318234460920100}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1554495240
 MonoBehaviour:
@@ -2943,6 +2943,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f06802ab61888449f36a7cef3e2e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer1: {fileID: 1739396949}
+  lineRenderer2: {fileID: 528273084}
+  a: 1
+  b: 1
+  resolution: 100
 --- !u!1 &1614708327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,6 +3351,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
+        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
+        m_MethodName: SetType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hyperbola
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7424318233738695507}
         m_TargetAssemblyTypeName: LineRendererController, Assembly-CSharp
         m_MethodName: EnableDraggableLine
@@ -3392,18 +3409,6 @@ MonoBehaviour:
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 33bcd568df787bf45b0e700289913e9a, type: 2}
-        m_TargetAssemblyTypeName: LineData, Assembly-CSharp
-        m_MethodName: SetType
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Hyperbola
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1687086351
@@ -3514,15 +3519,15 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2072359069
+  m_SortingLayer: 2
+  m_SortingOrder: 100
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3540,8 +3545,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.19217789, g: 1, b: 0, a: 1}
+      key1: {r: 0.19215688, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3573,7 +3578,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!1 &1741828386
 GameObject:
@@ -4356,7 +4361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7424318234460920100}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1890450892
 MonoBehaviour:
@@ -5087,9 +5092,8 @@ Transform:
   - {fileID: 1741828387}
   - {fileID: 905442746}
   - {fileID: 2051478044}
-  - {fileID: 1554495239}
   m_Father: {fileID: 7424318234460920100}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &7282822709298671552
 RectTransform:
@@ -10043,6 +10047,7 @@ Transform:
   - {fileID: 7424318233621397962}
   - {fileID: 1614708328}
   - {fileID: 395354149}
+  - {fileID: 1554495239}
   - {fileID: 1624150542668568551}
   - {fileID: 1890450891}
   m_Father: {fileID: 191032803}

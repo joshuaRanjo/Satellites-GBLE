@@ -8,10 +8,16 @@ public class FollowPath5 : MonoBehaviour
     [Header("Button")]
 
     public LineRenderer lineRenderer;
+    public LineRenderer lineRenderer1;
+    public LineRenderer lineRenderer2;
     public float totalPathLength = 0f;
     [SerializeField] private  float speed;
 
+    private bool finishedFirstLine = false;
+    private bool finishedSecondLine = false;
     private bool stopCoroutine = false;
+
+    private GameObject line;
 
     private float distanceAlongPath = 0f;
 
@@ -20,12 +26,18 @@ public class FollowPath5 : MonoBehaviour
         distanceAlongPath = 0f;
     }
 
-    public void SetLineRenderer(GameObject line)
+    public void SetLineRenderer(GameObject newLine)
     {
-
+        line = newLine;
         
         if(line.name != "Hyperbola")
             lineRenderer = line.GetComponent<LineRenderer>();
+        else
+        {
+            lineRenderer1 = line.transform.Find("Line1").GetComponent<LineRenderer>();
+            lineRenderer2 = line.transform.Find("Line2").GetComponent<LineRenderer>();
+            lineRenderer = lineRenderer1;
+        }
         
         //ENable special stuff for hyperbolas
 
@@ -36,6 +48,7 @@ public class FollowPath5 : MonoBehaviour
     {
         ResetPath();
         stopCoroutine = false;
+
     }
 
     public void StopFollowingPath()
@@ -51,12 +64,10 @@ public class FollowPath5 : MonoBehaviour
 
         float startTime = Time.time;
         
-        
         CalculateTotalPathLength();
         while (distanceAlongPath < 1f && !stopCoroutine)
         {
-            
-            distanceAlongPath += (speed / totalPathLength) * 0.002f;
+            distanceAlongPath += (speed / totalPathLength) * Time.deltaTime;
             int currentSegment = GetPathSegmentIndex(distanceAlongPath);
             float segmentFraction = GetSegmentFraction(distanceAlongPath, currentSegment);
             if (currentSegment >= 0 && currentSegment < lineRenderer.positionCount -1) 
@@ -67,10 +78,32 @@ public class FollowPath5 : MonoBehaviour
                 Vector3 targetPosition = Vector3.Lerp(startPosition, endPosition, segmentFraction);  
                 transform.localPosition = targetPosition;
             }
-
-            yield return null;
+             yield return null;
         }
 
+        if(line.name == "Hyperbola")
+        {
+            ResetPath();
+            lineRenderer = lineRenderer2;
+            CalculateTotalPathLength();
+            while (distanceAlongPath < 1f && !stopCoroutine)
+            {
+                distanceAlongPath += (speed / totalPathLength) * Time.deltaTime;
+                int currentSegment = GetPathSegmentIndex(distanceAlongPath);
+                float segmentFraction = GetSegmentFraction(distanceAlongPath, currentSegment);
+                if (currentSegment >= 0 && currentSegment < lineRenderer.positionCount -1) 
+                {
+                    Vector3 startPosition = lineRenderer.GetPosition(currentSegment);
+                    Vector3 endPosition = lineRenderer.GetPosition(currentSegment + 1);
+
+                    Vector3 targetPosition = Vector3.Lerp(startPosition, endPosition, segmentFraction);  
+                    transform.localPosition = targetPosition;
+                }
+                yield return null;
+            }
+        }
+
+       
         float elapsedTime = Time.time - startTime;
         Debug.Log("Coroutine took " + elapsedTime + " seconds to finish.");
         onCompleteCallback?.Invoke();

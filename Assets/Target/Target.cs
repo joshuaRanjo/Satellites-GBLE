@@ -62,9 +62,19 @@ public class Target : MonoBehaviour
             }
             else if (lineDataScriptableObject.type == "Hyperbola")
             {
-                if( ( ( ( (yk*yk) / (a*a) ) - ( (xh*xh) / (b*b)) ) == 1 ))
+                if(lineDataScriptableObject.orientation == "Vertical")
                 {
-                    grantExactBonus = true;
+                    if( ( ( ( (xh*xh) / (a*a) ) - ( (yk*yk) / (b*b)) ) == 1 ))
+                    {
+                        grantExactBonus = true;
+                    }
+                }
+                else
+                {
+                    if( ( ( ( (yk*yk) / (a*a) ) - ( (xh*xh) / (b*b)) ) == 1 ))
+                    {
+                        grantExactBonus = true;
+                    }
                 }
             }
             else

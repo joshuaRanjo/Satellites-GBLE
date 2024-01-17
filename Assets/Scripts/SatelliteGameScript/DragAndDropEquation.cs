@@ -71,7 +71,7 @@ public class DragAndDropEquation : MonoBehaviour
         submitButton.interactable = false;
         offset = transform.localPosition - transform.parent.InverseTransformPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         EventManager.TriggerEvent("DraggingVertex");
-        Debug.Log("DraggingVertex");
+        //Debug.Log("DraggingVertex");
     }
 
     void OnMouseUp()

@@ -257,8 +257,10 @@ public class InputController : MonoBehaviour
     private void UpdateData()
     {
         InputStopListening();
+        
         if(lineDataScriptableObject.changeType != "input")
         {
+            
             inputA.text = lineDataScriptableObject.a.ToString();
             inputB.text = "";
             inputH.text = lineDataScriptableObject.h.ToString();

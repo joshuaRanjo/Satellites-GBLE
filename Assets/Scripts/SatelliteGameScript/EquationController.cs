@@ -52,7 +52,7 @@ public class EquationController : MonoBehaviour
     public void SetEquationType(int type)
     {
         equationType = type;
-        ResetVariables();
+        
         //UpdateEquation();
     }
 
@@ -104,6 +104,7 @@ public class EquationController : MonoBehaviour
     {
         switch (lineDataScriptableObject.type)
         {
+            
             case "Circle":
                 CircleUpdate();
                 break;
@@ -125,22 +126,26 @@ public class EquationController : MonoBehaviour
     private void ParabolaUpdate()
     {
         //\[y=(x-5)^2+5\]
+        //Debug.Log("Equation Updated P");
         equationText.text = "\\[y=" + lineDataScriptableObject.a + "(x-" + lineDataScriptableObject.h + ")^2+"+ lineDataScriptableObject.k +"\\]";
     }
 
     private void CircleUpdate()
     {
+        //Debug.Log("Equation Updated C");
         equationText.text = "\\[(x-" + lineDataScriptableObject.h + ")^2+(y-" + lineDataScriptableObject.k + ")^2=" + lineDataScriptableObject.a + "^2\\]";
     }
 
     private void EllipseUpdate()
     {
-        equationText.text = "\\[\\frac{(x-" + lineDataScriptableObject.h + ")^2}{" + lineDataScriptableObject.a +"^2} + \\frac{(y-" + lineDataScriptableObject.k + ")^2}{" + lineDataScriptableObject.b + "^2} = 1\\]";;
+        //Debug.Log("Equation Updated E");
+        equationText.text = "\\[\\frac{(x-" + lineDataScriptableObject.h + ")^2}{" + lineDataScriptableObject.a +"^2} + \\frac{(y-" + lineDataScriptableObject.k + ")^2}{" + lineDataScriptableObject.b + "^2} = 1\\]";
     }
 
     private void HyperbolaUpdate()
     {
-
+        //Debug.Log("Equation Updated H");
+        equationText.text = "\\[\\frac{(x-" + lineDataScriptableObject.h + ")^2}{" + lineDataScriptableObject.a +"^2} - \\frac{(y-" + lineDataScriptableObject.k + ")^2}{" + lineDataScriptableObject.b + "^2} = 1\\]";
     }
     
 }

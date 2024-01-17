@@ -120,7 +120,7 @@ public class LineRendererController : MonoBehaviour
         }
 
         currentLine.SetActive(true);
-        UpdateLine();
+        //UpdateLine();
         satelliteController.SetLineRenderer(currentLine);
     }
 
@@ -200,12 +200,13 @@ public class LineRendererController : MonoBehaviour
 
     private void UpdateEllipse()
     {
-        //Debug.Log("Update Ellipse");
+        
         ellipseScript.DrawEllipse(lineDataScriptableObject.a, lineDataScriptableObject.b);
     }
 
     private void UpdateHyperbola()
     {
-        //Debug.Log("Update Hyperbola");
+        
+        hyperbolaScript.DrawHyperbola(lineDataScriptableObject.a, lineDataScriptableObject.b, lineDataScriptableObject.orientation);
     }
 }
