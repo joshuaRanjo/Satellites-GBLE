@@ -62,7 +62,7 @@ public class Target : MonoBehaviour
             }
             else if (lineDataScriptableObject.type == "Hyperbola")
             {
-                if(lineDataScriptableObject.orientation == "Vertical")
+                if(lineDataScriptableObject.orientation == "Horizontal")
                 {
                     if( ( ( ( (xh*xh) / (a*a) ) - ( (yk*yk) / (b*b)) ) == 1 ))
                     {

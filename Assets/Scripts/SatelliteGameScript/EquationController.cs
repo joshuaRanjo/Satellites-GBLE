@@ -17,12 +17,12 @@ public class EquationController : MonoBehaviour
     public bool isVertical = true;
 
     // Equation Variables
-
+/*
     private float h = 0;
     private float k = 0;
     private float a = 1;
     private float b = 1;
-
+*/
 #region EVENT_LISTENERS
 
 
@@ -68,10 +68,12 @@ public class EquationController : MonoBehaviour
     // Reset values / set up new equation
     public void ResetVariables()
     {
+        /*
         a = 1f;
         b = 1f;
         h = 0f;
         k = 0f;
+        */
         isVertical = true;
         equationText.text = "\\uparrow \\uparrow \\uparrow conic not selected \\uparrow \\uparrow \\uparrow";
     }

@@ -136,9 +136,6 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputB.text = "1";
-            //equationController.UpdateB(1f);
-            //lineRendererController.SetB(1f);
-
             lineDataScriptableObject.SetB(1f, "input");
         }
     }
@@ -148,9 +145,12 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputH.text = "0";
-            //equationController.UpdateH(0f);
-            //draggableLine.SetX(0f);
-
+            lineDataScriptableObject.SetH(0f, "input");
+        }
+        if(float.TryParse(newValue, out float floatValue))
+        {
+            if(floatValue >= 10f || floatValue <= -10f )
+            inputH.text = "0";
             lineDataScriptableObject.SetH(0f, "input");
         }
     }
@@ -160,10 +160,13 @@ public class InputController : MonoBehaviour
         if(!float.TryParse(newValue, out _))
         {
             inputK.text = "0";
-            //equationController.UpdateK(0f);
-            //draggableLine.SetY(0f);
-
             lineDataScriptableObject.SetK(0f, "input");
+        }
+        if(float.TryParse(newValue, out float floatValue))
+        {
+            if(floatValue >= 10f || floatValue <= -10f )
+            inputH.text = "0";
+            lineDataScriptableObject.SetH(0f, "input");
         }
     }
     private void UpdateA(string newValue)
@@ -172,7 +175,7 @@ public class InputController : MonoBehaviour
         {
 
             //equationController.UpdateA(floatValue);
-           //lineRendererController.SetA(floatValue);
+            //lineRendererController.SetA(floatValue);
             
             lineDataScriptableObject.SetA(floatValue, "input");
         }
@@ -195,8 +198,8 @@ public class InputController : MonoBehaviour
         {
             //equationController.UpdateH(floatValue);
             //draggableLine.SetX(floatValue);
-
-            lineDataScriptableObject.SetH(floatValue, "input");
+            if(floatValue <= 10f && floatValue >= -10f )
+                lineDataScriptableObject.SetH(floatValue, "input");
         }
         
     }
@@ -206,8 +209,8 @@ public class InputController : MonoBehaviour
         {
             //equationController.UpdateH(floatValue);
             //draggableLine.SetY(floatValue);
-
-            lineDataScriptableObject.SetK(floatValue, "input");
+            if(floatValue <= 10f && floatValue >= -10f )
+                lineDataScriptableObject.SetK(floatValue, "input");
         }
     }
 

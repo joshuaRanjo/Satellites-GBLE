@@ -13,8 +13,6 @@ public class FollowPath5 : MonoBehaviour
     public float totalPathLength = 0f;
     [SerializeField] private  float speed;
 
-    private bool finishedFirstLine = false;
-    private bool finishedSecondLine = false;
     private bool stopCoroutine = false;
 
     private GameObject line;
